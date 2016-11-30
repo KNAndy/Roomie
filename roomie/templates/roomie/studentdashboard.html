@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roomie</title>
+    <link rel="stylesheet" href="{% static 'css/material.min.css' %}">
+    <script src="{% static 'css/material.min.js' %}"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <!-- Uses a header that scrolls with the text, rather than staying
+      locked at the top -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-tabs">
+      <header class="mdl-layout__header mdl-layout__header--scroll ">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title"><a style="text-decoration:none;"><h2>Roomie</h2></a></span>
+        </div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+          <a href="#fixed-tab-1" class="mdl-layout__tab is-active">My profile</a>
+          <a href="#fixed-tab-2" class="mdl-layout__tab">College Profile</a>
+          <a href="#fixed-tab-3" class="mdl-layout__tab">Account settings</a>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title"></span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="/commonlogin">Logout</a>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+      <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+            <div class="mdl-grid">
+            <div class="page-content mdl-cell mdl-cell--4-col mdl-cell--4-offset" style="float :center;"><!-- Your content goes here -->
+            <center>
+                <table class="mdl-data-table mdl-js-data-table">
+                    <thead>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric"><h6>Name</h6></td>
+                      <td>{{user}}</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric"><h6>Gender</h6></td>
+                      <td>{{gender}}</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric"><h6>Roll number</h6></td>
+                      <td>{{roll}}</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric"><h6>Phone number</h6></td>
+                      <td>{{phone}}</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric"><h6>Locality</h6></td>
+                      <td>{{address}}</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric"><h6>Your roomie</h6></td>
+                      <td>{{roomie}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                </center>
+            </div>
+            </div>
+          </section>
+          <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+            <div class="page-content" ><!-- Your content goes here -->
+           <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+             <div class="mdl-tabs__tab-bar">
+                 <a href="#emailid-panel" class="mdl-tabs__tab is-active">Email address</a>
+                 <a href="#pwd-panel" class="mdl-tabs__tab">Password</a>
+                 <a href="#details-panel" class="mdl-tabs__tab">Personal Details</a>
+             </div>
+
+             <div class="mdl-tabs__panel is-active" id="emailid-panel">
+             <br><br><br><br><br>
+                    <center>
+                    <form action="/student_dashboard/changemail/" style="float : center;" method="POST">{% csrf_token %}
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="email" id="sample3" name="newmail" pattern="[a-z0-9_]{1,}@[a-z0-9]{1,}[\.][a-z\.]{0,}" required>
+                        <label class="mdl-textfield__label" for="sample3">Enter new email address</label>
+ <!--                       <span class="mdl-textfield__error">Input is not an email address!</span> -->
+                      </div>
+                      <br>
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="password" id="sample3" name="passconfirm" required>
+                        <label class="mdl-textfield__label" for="sample3">Enter password</label>
+                      </div>
+                        <br>    
+                        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                              Change Email address
+                        </button>
+                    </form>  
+                    </center>             
+             </div>
+             <div class="mdl-tabs__panel" id="details-panel">
+                    <center>
+                   <form action="/student_dashboard/changename/" method="POST">{% csrf_token %}
+                   <h5>Change Name</h5>
+                   <br>
+                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                       <input class="mdl-textfield__input" type="text" id="sample3" name="newname" required>
+                       <label class="mdl-textfield__label" for="sample3">Enter name</label>
+                     </div>
+                        <br>
+                       <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                             Change Name
+                       </button>
+                   </form>
+                   <br><br>
+                   <hr>
+                   <form action="/student_dashboard/changephone/" method="POST">{% csrf_token %}
+                   <h5>Change Phone Number</h5>
+                   <br>
+                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                       <input class="mdl-textfield__input" type="tel" id="sample3" name="newphone" pattern="[0-9]{8,10}" required>
+                       <label class="mdl-textfield__label" for="sample3">Enter phone number</label>
+                     </div>
+                        <br>
+                       <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                             Change Phone Number
+                       </button>
+                   </form>
+                   <br><br>
+                   <hr>
+                   <form action="/student_dashboard/changeadd/" method="POST">{% csrf_token %}
+                   <h5>Change Address</h5>
+                   <br>
+                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                       <input class="mdl-textfield__input" type="tel" id="sample3" name="newadd" required>
+                       <label class="mdl-textfield__label" for="sample3">Enter Address</label>
+                     </div>
+                        <br>
+                       <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                             Change Address
+                       </button>
+                   </form>
+                   <br>
+                   <br>
+                   <hr>
+                   </center>  
+            </div>
+             <div class="mdl-tabs__panel" id="pwd-panel">
+                 <center>
+                 <br><br><br><br>
+                 <form action="/student_dashboard/changepass/" method="POST">{% csrf_token %}
+                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                     <input class="mdl-textfield__input" type="password" id="sample3" name="oldpass" required>
+                     <label class="mdl-textfield__label" for="sample3">Enter old password</label>
+<!--                       <span class="mdl-textfield__error">Wrong password, try again!</span>  -->
+                   </div>
+                   <br>
+                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                     <input class="mdl-textfield__input" type="password" id="sample3" name="newpass" required>
+                     <label class="mdl-textfield__label" for="sample3">Enter new password</label>
+                   </div>
+                   <br>
+                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                     <input class="mdl-textfield__input" type="password" id="sample3" name="newpassconfirm" required>
+                     <label class="mdl-textfield__label" for="sample3">Confirm new password</label>
+<!--                      <span class="mdl-textfield__error">Passwords do not match, try again!</span> -->
+                   </div>
+                      <br>
+                     <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                           Change Password
+                     </button>
+                 </form>
+                 </center>
+             </div>
+           </div>
+          </section>
+          <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+            <div class="mdl-grid">
+                <div class="page-content mdl-cell mdl-cell--4-col mdl-cell--4-offset" style="float :center;"><!-- Your content goes here -->
+                    <center>
+                    <table class="mdl-data-table mdl-js-data-table">
+                        <thead>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td class="mdl-data-table__cell--non-numeric"><h6>College Name</h6></td>
+                          <td>{{clgname}}</td>
+                        </tr>
+                        <tr>
+                          <td class="mdl-data-table__cell--non-numeric"><h6>Locality</h6></td>
+                          <td>{{clgadd}}</td>
+                        </tr>
+                        <tr>
+                          <td class="mdl-data-table__cell--non-numeric"><h6>Director</h6></td>
+                          <td>{{clgdir}}</td>
+                        </tr>
+                        <tr>
+                          <td class="mdl-data-table__cell--non-numeric"><h6>Year of Establishment</h6></td>
+                          <td>{{clgyear}}</td>
+                        </tr>
+                        <tr>
+                          <td class="mdl-data-table__cell--non-numeric"><h6>Phone</h6></td>
+                          <td>{{clgphone  }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </center>
+                </div>
+            </div>
+          </section>
+          
+        </div>
+      </main>
+    </div>
+</body>
+</html>

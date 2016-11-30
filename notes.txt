@@ -1,0 +1,15 @@
+FRONT END:
+Make the app work on a fixed zoom level. Changing zoom makes it look ugly - use center tag
+problem with homepage on firefox
+collegecode dialog is messy
+add college pass for students and validate
+invalid collegecode error
+passwords dont match: front end validation using javascript
+starred passwords
+form field data type and length validation
+show collegecode in college dash
+
+BACKEND:
+hash passwords
+avoid duplicate student registrations
+take student to dashboard after signing up

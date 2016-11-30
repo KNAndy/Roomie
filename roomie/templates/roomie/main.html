@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roomie</title>
+    <link rel="stylesheet" href="{% static 'css/material.min.css' %}">
+    <script src="{% static 'css/material.min.js' %}"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <!-- Uses a header that scrolls with the text, rather than staying
+      locked at the top -->
+    <div class="mdl-layout mdl-js-layout">
+      <header class="mdl-layout__header mdl-layout__header--scroll">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title"><a href="/" style="text-decoration:none;"><h2>Roomie</h2></a></span>
+        </div>
+          <!-- Add spacer, to align navigation to the right -->
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title"></span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="/">Roomie</a>
+          <a class="mdl-navigation__link" href="/aboutus">What's Roomie</a>
+          <a class="mdl-navigation__link" href="/commonlogin">Login</a>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+        <div class="page-content mdl-grid" ><!-- Your content goes here -->
+           <!-- Square card -->
+           <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone mdl-cell--4-col-tablet">
+           <style>
+           .demo-card-square.mdl-card#studentcard {
+             width: 320px;
+             height:200px;
+             float: right;
+           }
+           .demo-card-square#studentcard > .mdl-card__title {
+             color: #fff;
+             background:
+               top left 10% no-repeat #46B6AC;
+           }
+           </style>
+           <div class="demo-card-square mdl-card mdl-shadow--2dp" id="studentcard">
+             <div class="mdl-card__title mdl-card--expand">
+               <h2 class="mdl-card__title-text">Student?</h2>
+             </div>
+
+             <div class="mdl-card__actions mdl-card--border">
+             
+               <button type="button" class="mdl-button show-modal mdl-button--colored mdl-js-button mdl-js-ripple-effect">Click here</button>
+                 <dialog class="mdl-dialog">
+                   <div class="mdl-dialog__content">
+                     <p>
+                       Enter your college code
+                     </p>
+                   </div>
+                   <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+                    <!-- Textfield with Floating Label -->
+
+                    <form action="studentregister/" method="POST"> {% csrf_token %}
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="collegecode" name="collegecode" required>
+                        <label class="mdl-textfield__label" for="collegecode">eg. 1234</label>
+                      </div>
+                      <button class="mdl-button" type="submit">Next</button>
+                      <button type="button" class="mdl-button close">Cancel</button>
+                    </form>
+                   </div>
+                 </dialog>
+                 <script>
+                   var dialog = document.querySelector('dialog');
+                   var showModalButton = document.querySelector('.show-modal');
+                   if (! dialog.showModal) {
+                     dialogPolyfill.registerDialog(dialog);
+                   }
+                   showModalButton.addEventListener('click', function() {
+                     dialog.showModal();
+                   });
+                   dialog.querySelector('.close').addEventListener('click', function() {
+                     dialog.close();
+                   });
+                 </script>
+               to find your Roomie
+             </div>
+           </div>
+           </div>
+           <!-- Square card -->
+           <div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-phone mdl-cell--4-col-tablet">
+           <style>
+           .demo-card-square.mdl-card#collegecard {
+             width: 320px;
+             height: 200px;
+             float: center;
+           }
+           .demo-card-square#collegecard > .mdl-card__title {
+             color: #fff;
+             background:
+               bottom right 15% no-repeat #46B6AC;
+           }
+           </style>
+           <div class="demo-card-square mdl-card mdl-shadow--2dp" id="collegecard">
+             <div class="mdl-card__title mdl-card--expand">
+               <h2 class="mdl-card__title-text">Roomie for your accomodation?</h2>
+             </div>
+             
+             <div class="mdl-card__actions mdl-card--border">
+             Just
+               <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="collegeregister/">
+                 click here
+               </a> and we'll set you up.
+             </div>             
+           </div>
+        </div>
+        </div>
+      </main>
+    </div>
+</body>
+</html>

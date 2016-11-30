@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roomie</title>
+    <link rel="stylesheet" href="{% static 'css/material.min.css' %}">
+    <script src="{% static 'css/material.min.js' %}"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <!-- Uses a header that scrolls with the text, rather than staying
+      locked at the top -->
+    <div class="mdl-layout mdl-js-layout">
+      <header class="mdl-layout__header mdl-layout__header--scroll">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title"><a href="/" style="text-decoration:none;"><h2>Roomie</h2></a></span>
+          <!-- Add spacer, to align navigation to the right -->
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title"></span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="/">Roomie</a>
+          <a class="mdl-navigation__link" href="/aboutus">What's Roomie</a>
+          <a class="mdl-navigation__link" href="/commonlogin">Login</a>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+        <div class="page-content"><!-- Simple header with fixed tabs. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+            mdl-layout--fixed-tabs">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title"><h4>LOGIN</h4></span>
+    </div>
+    <!-- Tabs -->
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+      <a href="#fixed-tab-1" class="mdl-layout__tab {{studentkey}}">STUDENTS</a>
+      <a href="#fixed-tab-2" class="mdl-layout__tab {{collegekey}}">COLLEGE</a>
+    </div>
+  </header><br><br>
+    <main class="mdl-layout__content">
+      <section class="mdl-layout__tab-panel {{studentkey}}" id="fixed-tab-1">
+        <div class="page-content"><!-- Simple Textfield -->
+          <form action="../student_dashboard/" method="POST">{% csrf_token %}
+            <center><div class="mdl-textfield mdl-js-textfield">
+<!-- -->              <input class="mdl-textfield__input" type="text" id="sample1" name="email" required> 
+                <label class="mdl-textfield__label" for="sample1">Registered Email address</label>
+        </div><br><br>
+            <center><div class="mdl-textfield mdl-js-textfield">
+              <input class="mdl-textfield__input" type="text" id="sample1" name="collegecode1" required>
+               <label class="mdl-textfield__label" for="sample1">College Code</label>
+        </div><br><br>
+            <center><div class="mdl-textfield mdl-js-textfield">
+              <input class="mdl-textfield__input" type="password" id="sample1" name="password1" required>
+                <label class="mdl-textfield__label" for="sample1">Password</label>
+            </div><br><br>
+<!--    	ADD CAPTCHAS ONCE EVERYTHING IS DONE. CAUSES PROBLEMS RIGHT NOW
+        	<img src="captcha_code_file.php?rand=<?php echo rand(); ?>"id="captchaimg" >
+              <label for="message">Enter the code above here :</label>
+                <input id="6_letters_code" name="6_letters_code" type="text"> 
+-->
+<!-- Flat button with ripple -->
+      <center><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit">
+      LOGIN!
+      </button>
+      </form>
+        </div>
+    </section>
+    <section class="mdl-layout__tab-panel {{collegekey}}" id="fixed-tab-2">
+      <div class="page-content"><form action="../college_dashboard/" method="POST">{% csrf_token %}
+        <center><div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" name="id" id="sample1" required>
+    <label class="mdl-textfield__label" for="sample1">ID</label>
+  </div><br><br>
+  <center><div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="password" id="sample1" name="password2" required>
+    <label class="mdl-textfield__label" for="sample1">Password</label>
+  </div><br><br>
+<!-- 	ADD CAPTCHAS ONCE EVERYTHING IS DONE. CAUSES PROBLEMS RIGHT NOW
+		<img src="captcha_code_file.php?rand=<?php echo rand(); ?>"
+		id="captchaimg" >
+		<label for="message">Enter the code above here :</label>
+		<input id="6_letters_code" name="6_letters_code" type="text"> 
+-->
+	<center><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+      LOGIN!
+      </button></form>
+</div>
+    </section>
+  </main>
+</div></div>
+      </main>
+    </div>
+</body>
+</html>

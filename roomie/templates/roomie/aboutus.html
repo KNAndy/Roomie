@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roomie</title>
+    <link rel="stylesheet" href="{% static 'css/material.min.css' %}">
+    <script src="{% static 'css/material.min.js' %}"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <!-- Uses a header that scrolls with the text, rather than staying
+      locked at the top -->
+    <div class="mdl-layout mdl-js-layout">
+      <header class="mdl-layout__header mdl-layout__header--scroll">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+            <span class="mdl-layout-title"><a href="/" style="color:white; text-decoration:none;"><h2>Roomie</h2></a></span>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title"></span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="/">Roomie</a>
+          <a class="mdl-navigation__link" href="/aboutus">What's Roomie</a>
+          <a class="mdl-navigation__link" href="/commonlogin">Login</a>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+        <div class="page-content"><!-- Your content goes here -->
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--10-col mdl-cell--2-order">
+              <h2 style="color:teal;"> What's Roomie? </h2>
+            </div>
+            <section class="mdl-cell mdl-cell--6-col"><p align="justify" style="font-size:17px">
+            Hi, this is Varun. Let me first tell you a story.
+            When I first came to college, it was exciting to think about living in an on-campus accomodation
+            with a roommate. What kind of a person would he be? When does he sleep? Will he be the cool type or
+             the studious type (or both)? It was a bit scary too. What if he ends up being a 'not-so-friendly' person?
+            With the whole process of pairing students being totally random,it was totally possible that the 
+            roommate could have absolutely no similarities. This thought terrified me. But luckily, I got
+             a roommate with less differences and many similarities. He is fundamentally different, but 
+            he is a great person.</p><br>
+            </section>
+            <section class="mdl-cell mdl-cell--6-col">  
+              <div style="position: relative;"><center>
+                    <img src="{% static 'img/hostel.jpg' %}" width="500" height="200"></center>
+            </section><br><br>
+            <section class="mdl-cell mdl-cell--6-col">  
+              <div style="position: relative;"><center>
+                    <img src="{% static 'img/pair.PNG' %}" width="300" height="240"></center><br>
+            </section>
+            <section class="mdl-cell mdl-cell--6-col"><p align="justify" style="font-size:17px">
+              But hey, everyone doesn't end up being so lucky. Some people do get a roommate
+             who just doesn't have much of a common ground.
+            So I thought &mdash; <em>"Does this whole roommate-pairing-thing have to be so random?"</em>
+            With the technology that we have today, and I being a tech student, I knew that the answer was no.
+            So my friends and I came up with an simple idea (which we later found out, was already being implemented in a different way in ivy league colleges). We decided to make an app that helps institutions, or for that matter any accomodation, pair roommates based on the type of person they are. That ended up being Roomie.<br></p>
+            </section><br>
+            <section class="mdl-cell mdl-cell--6-col"><p align="justify" style="font-size:17px">
+            Roomie is a web application which helps you decide roommates in your accomodation. 
+            When, as a student, you first register with your college code, we will ask you to answer a questionnaire. Based on the answers that you give, you will be paired with a person who gave similar answers. The questions and the pairing algorithm ensure that you and your roommate will be similar but not the exact same, so that there is some scope for improving your relationship skills.
+
+            As a college, when you register, you will be given a college code, which you have to give to your students. When they are all done registering, you can hit the "Pair" button, and we'll do the job for you, as simple as that. 
+
+            This way, everyone's happy, and you get a nice Roomie.</p>
+            </section>
+            <section class="mdl-cell mdl-cell--6-col">  
+                  <div style="position: relative;"><center>
+                    <img src="{% static 'img/roommates.jpg' %}" width="500" height="200"></center>
+              </section>
+            <div class="mdl-cell mdl-cell--12-col">
+            <h3 style="color:teal;">Our team</h3></div>
+            <div class="mdl-cell mdl-cell--4-col"><h6>
+            Varun<br><br>
+            Nihesh<br><br>
+            Snehal<br><br>
+            Sneha<br><br>
+            Swati<br><br>
+            Roshan</h6>
+            </div>
+            
+            
+          </div>
+        </div>
+      </main>
+    </div>
+</body>
+</html>

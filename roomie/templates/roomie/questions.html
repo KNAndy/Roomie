@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roomie</title>
+    <link rel="stylesheet" href="{% static 'css/material.min.css' %}">
+    <script src="{% static 'css/material.min.js' %}"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <!-- Uses a header that scrolls with the text, rather than staying
+      locked at the top -->
+    <div class="mdl-layout mdl-js-layout">
+      <header class="mdl-layout__header mdl-layout__header--scroll">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+            <span class="mdl-layout-title"><h2>Roomie</h2></span>
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+            mdl-layout--fixed-tabs">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row ">
+          <!-- Title -->
+          <span class="mdl-layout-title"><h4>The Roomie Test</h4></span>
+        </div>
+      </header>
+        <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--11-col mdl-cell--1-offset" style="float:left;">
+          <br>
+          <h5>Please select the most suitable option that you can identify yourself with</h5>
+          <br>
+          <br>
+        </div>
+        <form action="/studentregister/questionnaire/submit" method="POST">{% csrf_token %}
+        <ol type="number">
+        <div class="mdl-cell mdl-cell--5-col mdl-cell--1-offset" style="float:left;"><section>
+          <h6><li>I have a deep-seated need to learn a lot</li></h6>
+          <br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="1option-1">
+            <input type="radio" id="1option-1" class="mdl-radio__button" name="options-1" value="1" checked>
+            <span class="mdl-radio__label">Strongly inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="1option-2">
+            <input type="radio" id="1option-2" class="mdl-radio__button" name="options-1" value="2">
+            <span class="mdl-radio__label">Moderately Inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="1option-3">
+            <input type="radio" id="1option-3" class="mdl-radio__button" name="options-1" value="3">
+            <span class="mdl-radio__label">Neither accurate nor inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="1option-4">
+            <input type="radio" id="1option-4" class="mdl-radio__button" name="options-1" value="4">
+            <span class="mdl-radio__label">Moderately accurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="1option-5">
+            <input type="radio" id="1option-5" class="mdl-radio__button" name="options-1" value="5">
+            <span class="mdl-radio__label">Strongly accurate</span>
+          </label><br><br>
+          </section><br></div>
+        <div class="mdl-cell mdl-cell--5-col mdl-cell--1-offset" style="float:left;"><section>
+          <h6><li>I am a night owl</li></h6>
+          <br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="2option-1">
+            <input type="radio" id="2option-1" class="mdl-radio__button" name="options-2" value="1" checked>
+            <span class="mdl-radio__label">Strongly inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="2option-2">
+            <input type="radio" id="2option-2" class="mdl-radio__button" name="options-2" value="2">
+            <span class="mdl-radio__label">Moderately Inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="2option-3">
+            <input type="radio" id="2option-3" class="mdl-radio__button" name="options-2" value="3">
+            <span class="mdl-radio__label">Neither accurate nor inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="2option-4">
+            <input type="radio" id="2option-4" class="mdl-radio__button" name="options-2" value="4">
+            <span class="mdl-radio__label">Moderately accurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="2option-5">
+            <input type="radio" id="2option-5" class="mdl-radio__button" name="options-2" value="5">
+            <span class="mdl-radio__label">Strongly accurate</span>
+          </label><br><br>
+        </section><br></div>
+        <div class="mdl-cell mdl-cell--5-col mdl-cell--1-offset" style="float:left;"><section>
+          <h6><li>I would rather not have my friends in my room when I want to study</li></h6>
+          <br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="3option-1">
+            <input type="radio" id="3option-1" class="mdl-radio__button" name="options-3" value="1" checked>
+            <span class="mdl-radio__label">Strongly inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="3option-2">
+            <input type="radio" id="3option-2" class="mdl-radio__button" name="options-3" value="2">
+            <span class="mdl-radio__label">Moderately Inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="3option-3">
+            <input type="radio" id="3option-3" class="mdl-radio__button" name="options-3" value="3">
+            <span class="mdl-radio__label">Neither accurate nor inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="3option-4">
+            <input type="radio" id="3option-4" class="mdl-radio__button" name="options-3" value="4">
+            <span class="mdl-radio__label">Moderately accurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="3option-5">
+            <input type="radio" id="3option-5" class="mdl-radio__button" name="options-3" value="5">
+            <span class="mdl-radio__label">Strongly accurate</span>
+          </label><br><br>
+        </section><br></div>
+        <div class="mdl-cell mdl-cell--5-col mdl-cell--1-offset" style="float:left;"><section>
+          <h6><li>I can focus only in silence or light ambient noise.</li></h6>
+          <br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="4option-1">
+            <input type="radio" id="4option-1" class="mdl-radio__button" name="options-4" value="1" checked>
+            <span class="mdl-radio__label">Strongly inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="4option-2">
+            <input type="radio" id="4option-2" class="mdl-radio__button" name="options-4" value="2">
+            <span class="mdl-radio__label">Moderately Inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="4option-3">
+            <input type="radio" id="4option-3" class="mdl-radio__button" name="options-4" value="3">
+            <span class="mdl-radio__label">Neither accurate nor inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="4option-4">
+            <input type="radio" id="4option-4" class="mdl-radio__button" name="options-4" value="4">
+            <span class="mdl-radio__label">Moderately accurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="4option-5">
+            <input type="radio" id="4option-5" class="mdl-radio__button" name="options-4" value="5">
+            <span class="mdl-radio__label">Strongly accurate</span>
+          </label><br><br>
+        </section><br></div>
+        <div class="mdl-cell mdl-cell--5-col mdl-cell--1-offset" style="float:left;"><section>
+          <h6><li>I listen to music (on speakers) when I work / study</li></h6>
+          <br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="5option-1">
+            <input type="radio" id="5option-1" class="mdl-radio__button" name="options-5" value="1" checked>
+            <span class="mdl-radio__label">Strongly inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="5option-2">
+            <input type="radio" id="5option-2" class="mdl-radio__button" name="options-5" value="2">
+            <span class="mdl-radio__label">Moderately Inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="5option-3">
+            <input type="radio" id="5option-3" class="mdl-radio__button" name="options-5" value="3">
+            <span class="mdl-radio__label">Neither accurate nor inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="5option-4">
+            <input type="radio" id="5option-4" class="mdl-radio__button" name="options-5" value="4">
+            <span class="mdl-radio__label">Moderately accurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="5option-5">
+            <input type="radio" id="5option-5" class="mdl-radio__button" name="options-5" value="5">
+            <span class="mdl-radio__label">Strongly accurate</span>
+          </label><br><br>
+        </section><br></div>
+        <div class="mdl-cell mdl-cell--5-col mdl-cell--1-offset" style="float:left;"><section>
+          <h6><li>If I want to relax, I will quietly read a non-academic book</li></h6>
+          <br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="6option-1">
+            <input type="radio" id="6option-1" class="mdl-radio__button" name="options-6" value="1" checked>
+            <span class="mdl-radio__label">Strongly inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="6option-2">
+            <input type="radio" id="6option-2" class="mdl-radio__button" name="options-6" value="2">
+            <span class="mdl-radio__label">Moderately Inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="6option-3">
+            <input type="radio" id="6option-3" class="mdl-radio__button" name="options-6" value="3">
+            <span class="mdl-radio__label">Neither accurate nor inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="6option-4">
+            <input type="radio" id="6option-4" class="mdl-radio__button" name="options-6" value="4">
+            <span class="mdl-radio__label">Moderately accurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="6option-5">
+            <input type="radio" id="6option-5" class="mdl-radio__button" name="options-6" value="5">
+            <span class="mdl-radio__label">Strongly accurate</span>
+          </label><br><br>
+        </section><br></div>
+        <div class="mdl-cell mdl-cell--5-col mdl-cell--1-offset" style="float:left;"><section>
+          <h6><li>If I want to relax, I will have a nice gossip session with my friends</li></h6>
+          <br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="7option-1">
+            <input type="radio" id="7option-1" class="mdl-radio__button" name="options-7" value="1" checked>
+            <span class="mdl-radio__label">Strongly inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="7option-2">
+            <input type="radio" id="7option-2" class="mdl-radio__button" name="options-7" value="2">
+            <span class="mdl-radio__label">Moderately Inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="7option-3">
+            <input type="radio" id="7option-3" class="mdl-radio__button" name="options-7" value="3">
+            <span class="mdl-radio__label">Neither accurate nor inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="7option-4">
+            <input type="radio" id="7option-4" class="mdl-radio__button" name="options-7" value="4">
+            <span class="mdl-radio__label">Moderately accurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="7option-5">
+            <input type="radio" id="7option-5" class="mdl-radio__button" name="options-7" value="5">
+            <span class="mdl-radio__label">Strongly accurate</span>
+          </label><br><br>
+        </section><br></div>
+        <div class="mdl-cell mdl-cell--5-col mdl-cell--1-offset" style="float:left;"><section>
+          <h6><li>I tend to keep my stuff organized and my room tidy</li></h6>
+          <br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="8option-1">
+            <input type="radio" id="8option-1" class="mdl-radio__button" name="options-8" value="1" checked>
+            <span class="mdl-radio__label">Strongly inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="8option-2">
+            <input type="radio" id="8option-2" class="mdl-radio__button" name="options-8" value="2">
+            <span class="mdl-radio__label">Moderately Inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="8option-3">
+            <input type="radio" id="8option-3" class="mdl-radio__button" name="options-8" value="3">
+            <span class="mdl-radio__label">Neither accurate nor inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="8option-4">
+            <input type="radio" id="8option-4" class="mdl-radio__button" name="options-8" value="4">
+            <span class="mdl-radio__label">Moderately accurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="8option-5">
+            <input type="radio" id="8option-5" class="mdl-radio__button" name="options-8" value="5">
+            <span class="mdl-radio__label">Strongly accurate</span>
+          </label><br><br>
+        </section><br></div>
+        <div class="mdl-cell mdl-cell--5-col mdl-cell--1-offset" style="float:left;"><section>
+          <h6><li>I tend to talk to people who are in my room, even when one of us may be working</li></h6>
+          <br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="9option-1">
+            <input type="radio" id="9option-1" class="mdl-radio__button" name="options-9" value="1" checked>
+            <span class="mdl-radio__label">Strongly inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="9option-2">
+            <input type="radio" id="9option-2" class="mdl-radio__button" name="options-9" value="2">
+            <span class="mdl-radio__label">Moderately Inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="9option-3">
+            <input type="radio" id="9option-3" class="mdl-radio__button" name="options-9" value="3">
+            <span class="mdl-radio__label">Neither accurate nor inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="9option-4">
+            <input type="radio" id="9option-4" class="mdl-radio__button" name="options-9" value="4">
+            <span class="mdl-radio__label">Moderately accurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="9option-5">
+            <input type="radio" id="9option-5" class="mdl-radio__button" name="options-9" value="5">
+            <span class="mdl-radio__label">Strongly accurate</span>
+          </label><br><br>
+        </section><br></div>
+        <div class="mdl-cell mdl-cell--5-col mdl-cell--1-offset" style="float:left;"><section>
+          <h6><li>I don’t draw a line between my stuff and my roommates stuff &mdash;<br>
+          "Whats mine in yours and whats yours is mine"</li></h6>
+          <br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="10option-101">
+            <input type="radio" id="10option-101" class="mdl-radio__button" name="options-10" value="1" checked>
+            <span class="mdl-radio__label">Strongly inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="10option-102">
+            <input type="radio" id="10option-102" class="mdl-radio__button" name="options-10" value="2">
+            <span class="mdl-radio__label">Moderately Inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="10option-103">
+            <input type="radio" id="10option-103" class="mdl-radio__button" name="options-10" value="3">
+            <span class="mdl-radio__label">Neither accurate nor inaccurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="10option-104">
+            <input type="radio" id="10option-104" class="mdl-radio__button" name="options-10" value="4">
+            <span class="mdl-radio__label">Moderately accurate</span>
+          </label><br><br>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="10option-105">
+            <input type="radio" id="10option-105" class="mdl-radio__button" name="options-10" value="5">
+            <span class="mdl-radio__label">Strongly accurate</span>
+          </label><br><br>
+        </section><br></div>
+        <div class="mdl-cell mdl-cell--12-col">
+        <center>
+        <h6>You can give this test only <strong>once</strong><br>
+        hence recheck your answers before submitting your answers</h6>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit">
+          Submit Answers
+        </button>
+        </center>
+        <br><br>
+        </div>
+        </div>
+        </ol>
+        </form>
+      </main>
+    </div>
+</body>
+</html>
